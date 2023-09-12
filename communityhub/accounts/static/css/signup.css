@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Oswald:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Oswald:wght@600&family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Monoton&family=Oswald:wght@600&family=Poppins&display=swap");
+
+
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply existing fonts and colors */
+:root {
+  --font-one: "Monoton", cursive;
+  --font-two: "Poppins", sans-serif;
+  --font-three: "Bangers", cursive;
+  --color-one: #feff86;
+  --color-three: #252b48;
+  --color-four: #272829;
+  --color-five: #ffff;
+}
+
+/* General styling for header */
+.header {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: var(--color-one);
+  padding: 10px 20px;
+}
+
+.community {
+  font-family: var(--font-one);
+  font-size: 25px;
+  color: var(--color-four);
+}
+
+.wrapped-search {
+  display: flex;
+  align-items: center;
+  margin-left: 60%; /* Center align the search */
+}
+
+.search-input {
+  height: 30px;
+  width: 200px;
+  border: none;
+  border-radius: 25px 0 0 25px;
+  padding-left: 10px;
+}
+
+.search-button {
+  border: none;
+  border-radius: 0 25px 25px 0;
+  width: 50px;
+  height: 32px;
+  background-color: var(--color-three);
+  color: white;
+  cursor: pointer;
+}
+
+/* Container layout */
+.container {
+  display: flex;
+  width: 100%;
+  overflow: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Styling for left and right sides */
+.left-side,
+.right-side {
+  flex: 1;
+  padding: 35px;
+  font-family: var(--font-three);
+  text-align: center;
+  font-size: 25px;
+}
+
+.left-side {
+  font-size: 50px;
+  text-align: center;
+  font-family: var(--font-three);
+  margin-top: 5%;
+}
+
+.kiri {
+    margin-top: 30px;
+}
+
+/* Styling for input boxes and select */
+.box {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 40px; /* Increased height for select */
+  border: none;
+  font-family: var(--font-two);
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* Box Gender */
+.box-selected {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  height: 40px; /* Increased height for select */
+  border: none;
+  font-family: var(--font-two);
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* Button styling */
+button[type="submit"] {
+  font-family: var(--font-two);
+  background-color: var(--color-one);
+  color: var(--color-three);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 20px; /* Slightly increased margin */
+  width: 120px; /* Slightly increased width */
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-four);
+  color: var(--color-five);
+}
+
+/* Login link styling */
+.login {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.login a {
+  color: var(--color-three);
+  text-decoration: none;
+}
+
+/* Footer styling */
+.footer {
+  background-color: var(--color-five);
+  color: var(--color-four);
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: var(--color-four);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.wm {
+  margin-top: 10px;
+}

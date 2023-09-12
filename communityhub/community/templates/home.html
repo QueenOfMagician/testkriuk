@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Community</title>
+  {% load static %}
+  <link rel="shortcut icon" href="{% static 'img/fav.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+  <header class="header">
+    <a href="{% url 'home' %}">
+      <h1 class="community">Community</h1>
+    </a>
+    <div class="wrapped-search">
+      <input class="search-input" type="text" placeholder="Cari...">
+      <button class="search-button">Cari</button>
+      <a href="{% url 'logout' %}">
+        <button>logout</button>
+      </a>
+    </div>
+  </header>
+  <div class="container">
+    <div id="box1" class="box" onclick="toggleBox2()">
+      <button id="toggleButton" class="toggle-button">
+        <img class="arrow-image" src="{% static 'img/kiri.png' %}">
+      </button>
+    </div>
+    <div id="box2" class="box custom-scrollbar">
+      <ul>
+        <div class="pmorcom"></div>
+        <div class="head-box2">
+          <div class="message-box"></div>
+          <div class="group-box"></div>
+          <div class="create"></div>
+        </div>
+        {% for grms in grm %}
+        <div class="box-commun">
+          <li>
+            <a href="{% url 'grup' grup_id=grms.group.id %}">
+              <p class="nama-gr"><b>{{ grms.group }}</b></p>
+            </a>
+            <p class="status-gr">{{ grms.status }}</p>
+            <div class="iconpesan"></div>
+            <div class="iconpost"></div>
+            <div class="icongr"></div>
+          </li>
+        </div>
+        {% endfor %}          
+        <div class="end-loop"></div>
+      </ul>
+    </div>
+    <div id="box3" class="box">
+      {% if request.path == '/' %}
+      <h1>SILAHKAN PILIH GROUP</h1>
+      {% endif %}
+      <ul>
+        {% for pesan in pesanya %}
+        {% if pesan.pengirim == request.user %}
+        <li>
+          <div class="pesankanan">
+            <p class="pengirim">{{ pesan.pengirim }}</p>
+            <p class="text-pesan">{{ pesan.text_pesan }}</p>
+            <p class="tanggal">{{ pesan.kirim|time:"H:i:s" }}</p>
+          </div>
+        </li>
+        {% else %}
+        <li>
+          <div class="pesankiri">
+            <p class="pengirim">{{ pesan.pengirim }}</p>
+            <p class="text-pesan">{{ pesan.text_pesan }}</p>
+            <p class="tanggal">{{ pesan.kirim|time:"H:i:s" }}</p>
+          </div>
+        </li>
+        {% endif %} 
+        {% endfor %}
+        {% if request.resolver_match.url_name == 'grup' %}
+        <form method="post">
+          {% csrf_token %}
+          <label for="id_text_pesan"></label>
+            <textarea name="text_pesan" cols="40" rows="10" required id="id_text_pesan">
+            </textarea>
+          <button>enter</button>
+        </form>
+        {% endif %}
+        <div class="endloop2"></div>
+      </ul>
+    </div> 
+  </div>
+  <script>let box2Open = false;
+    const toggleButton = document.getElementById("toggleButton");
+    const arrowImage = document.querySelector(".arrow-image");
+    
+    function toggleBox2() {
+      const box2 = document.getElementById("box2");
+    
+      if (!box2Open) {
+        box2.style.flex = "0 0 400px";
+        arrowImage.src = "{% static 'img/kanan.png' %}";
+      } else {
+        box2.style.width = "0";
+        box2.style.flex = 0;
+        arrowImage.src = "{% static 'img/kiri.png' %}";
+      }
+      box2Open = !box2Open;
+    }
+    function openBox2() {
+      if (box2Open) {
+        toggleBox2();
+      }
+    }
+    </script>
+</body>
+</html>

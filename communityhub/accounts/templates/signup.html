@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Hub - Sign Up</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="community">Community</h1>
+    <div class="wrapped-search">
+      <input class="search-input" type="text" placeholder="Cari...">
+      <button class="search-button">Cari</button>
+    </div>
+  </header>
+  <div class="container">
+    <div class="left-side">
+      <p class="kiri">CONNECTING</p>
+      <p class="kiri">WITH</p>
+      <p class="kiri">EVERYONE</p>
+    </div>
+    <div class="right-side">
+      <form method="post">
+        {% csrf_token %}
+        <p>
+          <label for="id_username"></label>
+          <input type="text" name="username" class="box" maxlength="150" placeholder="Username" autofocus required id="id_username">
+        </p>
+        <p>
+          <label for="id_email"></label>
+          <input type="email" placeholder="Email" class="box" name="email" maxlength="254" id="id_email">
+        </p>
+        <p>
+          <label for="id_password1"></label>
+          <input type="password" placeholder="Password" class="box" name="password1" autocomplete="new-password" required id="id_password1">
+        </p>
+        <p>
+          <label for="id_password2"></label>
+          <input type="password" placeholder="Confirm Password" class="box" name="password2" autocomplete="new-password" required id="id_password2">
+        </p>
+        <p>
+          <label for="id_gender"></label>
+          <select name="gender" id="id_gender" class="box-selected">
+            <option value="" disabled selected>Select Gender</option>
+            <option value="MAN">MAN</option>
+            <option value="WOMAN">WOMAN</option>
+          </select>
+        </p>
+        <button type="submit">SIGN UP</button>
+      </form>
+      <p class="login">Already have an account? <a href="{% url 'signin' %}">Log In</a></p>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Tentang</a>
+      <a href="#">Masuk</a>
+      <a href="#">Daftar</a>
+      <a href="#">Panduan Komunitas</a>
+      <a href="#">Iklan</a>
+      <a href="#">Kerja Sama</a>
+      <a href="#">Kebijakan Privasi</a>
+    </div>
+    <p class="wm">&copy; 2023 Community Hub</p>
+  </footer>
+</body>
+</html>

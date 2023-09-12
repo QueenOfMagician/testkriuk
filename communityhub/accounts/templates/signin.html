@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Hub</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="community">Community</h1>
+    <div class="wrapped-search">
+      <input class="search-input" type="text" placeholder="Cari...">
+      <button class="search-button">Cari</button>
+    </div>
+  </header>
+  <div class="container">
+    <div class="left-side">
+      <p>CONNECTING</p>
+      <p>WITH</p>
+      <p>EVERYONE</p>
+    </div>
+    <div class="right-side">
+      <form method="post">
+        {% csrf_token %}
+        <p>
+          <label for="id_username"></label>
+          <input class="box" type="text" name="username" autofocus
+            placeholder="Username" autocapitalize="none"
+            autocomplete="username" maxlength="150" required
+            id="id_username">
+        </p>
+        <p>
+          <label for="id_password"></label>
+          <input class="box" type="password" name="password"
+            autocomplete="current-password" required
+            id="id_password" placeholder="Password">
+        </p>
+        <button type="submit" class="login-button">SIGN IN</button>
+        <a href="#" class="forgot-pwd">forgot password? </a>
+      </form>
+      <p class="signup">No have account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Tentang</a>
+      <a href="#">Masuk</a>
+      <a href="#">Daftar</a>
+      <a href="#">Panduan Komunitas</a>
+      <a href="#">Iklan</a>
+      <a href="#">Kerja Sama</a>
+      <a href="#">Kebijakan Privasi</a>
+    </div>
+    <p>&copy; 2023 Community Hub</p>
+  </footer>
+</body>
+</html>
